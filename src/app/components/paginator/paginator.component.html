@@ -1,0 +1,74 @@
+<div class="paginator">
+    <!-- Boton Anterior -->
+    <button
+      data-cy="btn-anterior"
+      [ngClass]="{ 'hide-button': hideButtonPrev() }"
+      (click)="back()"
+    >
+      Anterior
+    </button>
+    <!-- fin boton Anterior -->
+    <div class="pages">
+      <!-- first page -->
+      <span
+        (click)="goToPage(firstPage)"
+        [ngClass]="{ 'bold-text': firstPage === currentPage }"
+      >
+        {{ firstPage }}
+        <div
+          data-cy="active-page"
+          *ngIf="firstPage === currentPage"
+          class="active-page"
+        ></div
+      ></span>
+      <!-- fin first page -->
+  
+      <!-- puntos first page -->
+      <span *ngIf="showFirstPageDots()"> ... </span>
+      <!-- fin puntos first page -->
+  
+      <!-- dynamic pages -->
+      <span
+        [ngClass]="{ 'bold-text': dynamicPage === currentPage }"
+        *ngFor="let dynamicPage of dynamicPages"
+        (click)="goToPage(dynamicPage)"
+      >
+        {{ dynamicPage }}
+        <div
+          data-cy="active-page"
+          *ngIf="dynamicPage === currentPage"
+          class="active-page"
+        ></div>
+      </span>
+      <!-- fin dynamic pages -->
+  
+      <!-- puntos last page -->
+      <span *ngIf="showLastPageDots()"> ... </span>
+      <!-- fin puntos last page -->
+  
+      <!-- last page -->
+      <span
+        *ngIf="lastPage > firstPage"
+        (click)="goToPage(lastPage)"
+        [ngClass]="{ 'bold-text': lastPage === currentPage }"
+      >
+        {{ lastPage }}
+        <div
+          data-cy="active-page"
+          *ngIf="lastPage === currentPage"
+          class="active-page"
+        ></div
+      ></span>
+      <!-- fin last page -->
+    </div>
+    <!-- boton siguiente -->
+    <button
+      data-cy="btn-siguiente"
+      [ngClass]="{ 'hide-button': hideButtonNext() }"
+      (click)="next()"
+    >
+      Siguiente
+    </button>
+    <!-- boton siguiente -->
+  </div>
+  
