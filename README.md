@@ -1,6 +1,7 @@
 Angular generic and useful components:
 
 - Paginator => src/app/components/paginator
+- Tooltip => src/app/components/tooltip
 
 # GenericComponents
 
